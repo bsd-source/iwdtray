@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=iwdtray
+Comment=Wireless network status and passphrase agent for iwd
+Exec=iwdtray
+Icon=network-wireless-symbolic
+Terminal=false
+NoDisplay=true

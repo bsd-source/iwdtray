@@ -1,0 +1,181 @@
+/* The window. Colours come from the k_* names that style.rs defines, so the
+   same rules serve the dark and light palettes. */
+
+window.console {
+  background: @k_bg;
+  color: @k_ink;
+  font-family: "Noto Sans Mono", "DejaVu Sans Mono", monospace;
+  font-size: 10pt;
+}
+
+window.console headerbar {
+  background: @k_bg;
+  color: @k_ink;
+  border-bottom: 1px solid @k_line;
+  box-shadow: none;
+  min-height: 38px;
+}
+window.console headerbar .title { font-weight: 600; letter-spacing: 0.5px; }
+.dev { color: @k_faint; font-size: 9pt; }
+/* Switches (Wi-Fi power, auto-connect), small and styled like the action buttons: tinted in
+   the switch colour when on, the unavailable-button grey when off. */
+window.console switch {
+  min-width: 0;
+  min-height: 0;
+  padding: 1px;
+  border-radius: 999px;
+  border: 1px solid alpha(@k_soft, 0.28);
+  background: alpha(@k_soft, 0.06);
+  box-shadow: none;
+}
+window.console switch:checked {
+  border-color: alpha(@k_switch, 0.3);
+  background: alpha(@k_switch, 0.18);
+}
+window.console switch slider {
+  min-width: 14px;
+  min-height: 14px;
+  /* Side margins lengthen the track while the knob stays round. */
+  margin: 0 4px;
+  border-radius: 999px;
+  border: none;
+  background: mix(@k_soft, @k_ink, 0.5);
+  box-shadow: none;
+}
+window.console switch:checked slider { background: @k_switch; }
+button.theme-toggle {
+  background: transparent;
+  border: 1px solid @k_line;
+  border-radius: 6px;
+  box-shadow: none;
+  min-height: 0;
+  min-width: 0;
+  padding: 3px 6px;
+  color: @k_soft;
+}
+button.theme-toggle:hover { color: @k_amber; border-color: alpha(@k_amber, 0.7); background: alpha(@k_amber, 0.10); }
+
+.tele { padding: 14px 16px 12px; border-bottom: 1px solid @k_line; }
+.ssid { font-size: 12pt; font-weight: 600; }
+/* Rule under the network name, separating it from the readouts. */
+.tele-top { padding-bottom: 10px; margin-bottom: 4px; border-bottom: 1px solid @k_line; }
+.tele-top.no-rule { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+/* Status label in neon orange. */
+.live { color: @k_amber; font-size: 8pt; font-weight: bold; }
+.live.off { color: @k_faint; }
+
+.readout-label { color: @k_faint; font-size: 7.5pt; letter-spacing: 1px; }
+.readout-value { font-size: 10pt; }
+.row-mac { color: @k_soft; font-size: 8pt; }
+
+/* Tabs: quiet labels, the current one underlined. */
+.tabs { padding: 8px 16px 0; border-bottom: 1px solid @k_line; }
+button.tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 0;
+  padding: 4px 2px 6px;
+  color: @k_faint;
+  font-size: 8pt;
+  letter-spacing: 1px;
+}
+button.tab:hover { color: @k_ink; }
+button.tab:checked { color: @k_ink; border-bottom-color: @k_action; }
+.when { color: @k_soft; }
+.colhead { color: @k_faint; font-size: 7.5pt; letter-spacing: 1px; padding: 10px 16px 6px; }
+
+scrolledwindow, scrolledwindow > viewport, list.networks { background: transparent; }
+list.networks row { padding: 7px 16px; border-top: 1px solid @k_line; color: @k_ink; }
+/* The rule under the last row is a shadow, which takes no height: four full
+   rows fit the list exactly, and the action bar's border covers it. */
+list.networks row.last { box-shadow: 0 1px 0 0 @k_line; }
+list.networks row:hover { background: @k_panel; }
+list.networks row.connected { background: alpha(@k_ice, 0.07); }
+list.networks row:selected { background: alpha(@k_ice, 0.16); color: @k_ink; }
+list.networks row:focus-visible { outline: 1px solid @k_ice; outline-offset: -1px; }
+.lock { color: @k_soft; }
+.known { color: @k_soft; }
+.link { color: @k_ok; }
+
+/* Five-dot signal meter, lit in neon. */
+.dot {
+  min-width: 7px;
+  min-height: 7px;
+  border-radius: 50%;
+  background: @k_line;
+}
+.dot.lit { background: @k_neon; }
+
+.empty-list { color: @k_faint; padding: 24px 16px; }
+
+searchentry.filter { margin: 8px 16px 0; }
+/* Text fields in the window colours. */
+window.console entry {
+  background: @k_panel;
+  color: @k_ink;
+  border: 1px solid alpha(@k_soft, 0.28);
+  border-radius: 6px;
+  box-shadow: none;
+  min-height: 28px;
+}
+window.console entry:focus-within { border-color: alpha(@k_action, 0.6); }
+
+/* Row for joining a hidden network: the action bar's text size and side padding. */
+.hidden-bar { padding: 8px 12px; border-bottom: 1px solid @k_line; font-size: 8pt; }
+/* The hidden-network and hotspot fields, as tall as the action buttons. */
+.hidden-bar entry, .hotspot entry { min-height: 21px; min-width: 0; padding-top: 0; padding-bottom: 0; }
+
+/* Hotspot tab. */
+.hotspot { padding: 14px 16px; }
+.running-label { font-size: 8pt; font-weight: bold; letter-spacing: 1px; }
+/* The hotspot client table sits inside the page's own side padding. */
+.colhead.flush { padding-left: 0; padding-right: 0; }
+.clients-count { margin-bottom: 2px; }
+/* The Hotspot page already has side padding. */
+list.clients row { padding-left: 0; padding-right: 0; }
+
+/* Confirmation dialogs. */
+.confirm-body { color: @k_soft; }
+
+/* Passphrase prompt. */
+.prompt { padding: 16px 16px 14px; }
+.prompt-heading { margin-bottom: 4px; }
+
+.status { padding: 6px 16px; color: @k_soft; font-size: 9pt; border-top: 1px solid @k_line; }
+.status.error { color: @k_amber; }
+
+.actions { padding: 8px 12px 10px; border-top: 1px solid @k_line; color: @k_soft; font-size: 8pt; }
+button.action {
+  /* One fixed width for every action button, wide enough for "Disconnect". */
+  min-width: 68px;
+  background: transparent;
+  border: 1px solid @k_line;
+  border-radius: 6px;
+  box-shadow: none;
+  padding: 3px 8px;
+  min-height: 0;
+  color: @k_soft;
+}
+/* Every action that can be used right now uses the action colour
+   (neon orange on dark, blue on light). */
+button.action:not(:disabled) {
+  color: @k_action;
+  border-color: alpha(@k_action, 0.3);
+  background: alpha(@k_action, 0.10);
+}
+button.action:not(:disabled):hover { background: alpha(@k_action, 0.20); }
+button.action:not(:disabled):active { background: alpha(@k_action, 0.28); }
+/* Forget waiting for its confirming click. */
+button.action.confirm:not(:disabled) {
+  color: @k_amber;
+  border-color: alpha(@k_amber, 0.4);
+  background: alpha(@k_amber, 0.15);
+}
+/* Unavailable actions stay readable, just quieter. */
+button.action:disabled,
+button.action:disabled label { opacity: 1; color: mix(@k_soft, @k_ink, 0.5); }
+button.action:disabled { border-color: alpha(@k_soft, 0.28); background: alpha(@k_soft, 0.06); }
+button.action:focus-visible { outline: 1px solid @k_ice; outline-offset: 1px; }

@@ -1,0 +1,20 @@
+[package]
+name = "iwdtray-gui"
+description = "iwdtray-gui, the GTK front end: the window and the passphrase prompt"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[dependencies]
+iwdtray-common.workspace = true
+gtk.workspace = true
+zeroize.workspace = true
+
+[dev-dependencies]
+mock-iwd.workspace = true
+
+[lints]
+workspace = true

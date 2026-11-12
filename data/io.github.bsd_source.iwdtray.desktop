@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=iwdtray
+Comment=Wireless networks, saved networks and hotspot for iwd
+Exec=iwdtray-gui
+Icon=network-wireless-symbolic
+Categories=GTK;Settings;HardwareSettings;
+Terminal=false
